@@ -1,0 +1,27 @@
+iconSmall = 32px;
+iconMedium = 38px;
+iconLarge = 44px;
+iconHuge = 56px;
+
+sizeIcon(size) {
+    height: size;
+    width: size;
+    line-height: size;
+    border-radius: (size / 2);
+    font-size: (size * 0.6);
+}
+
+i.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+    background-color: lightGray;
+    color: whiteSmoke;
+    font-style: initial;
+    sizeIcon(iconMedium);
+}

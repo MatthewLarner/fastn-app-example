@@ -1,0 +1,36 @@
+button(){
+    height: buttonHeight;
+    background: none;
+    color: inherit;
+    text-align: center;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+    position:relative;
+    flex-direction:row;
+    text-decoration: none;
+    border-radius: 2px;
+
+    buttonFont()
+
+    &[disabled=disabled]{
+        opacity:0.5;
+        pointer-events:none;
+    }
+
+    &.active{
+        opacity:0.95;
+        border-bottom-width: 1px;
+        transform(scale(0.98));
+        transition: all 0.08s ease;
+    }
+
+    &:after, &:before{
+        width:100%;
+    }
+}
+
+button{
+    button();
+}

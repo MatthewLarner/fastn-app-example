@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+
+    font: defaultFont;
+    -webkit-font-smoothing: antialiased;
+}
+
+*:not(input,textarea) {
+    -webkit-user-select: none;
+}
+
+html {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    font-size:14px;
+    padding:0;
+    font: defaultFont;
+    line-height: 28px;
+    background-color: defaultBackground;
+    margin: 0;
+}
+
+.appWrapper {
+    height:100%;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &::before {
+        content: "";
+        position:fixed;
+        fillElement();
+        background-color: transparent;
+    }
+
+    &.hide {
+        opacity: 0;
+    }
+}
+
+.appBody {
+    transition: padding 0.3s ease-out;
+    transform: translateZ(0);
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    overflow: auto;
+    position:fixed;
+    background-color: transparent;
+    overflow: hidden;
+
+    fillElement();
+}
+
+a {
+    color: mainText;
+    text-decoration: none;
+}
+
+h1, h2, h3{
+    text-align: left;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h1 {
+    headline();
+}
+
+h2 {
+    title();
+}
+
+h3{
+    subhead();
+    font-weight: normal;
+}

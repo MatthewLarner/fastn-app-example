@@ -1,0 +1,108 @@
+.page.home {
+    height: 100%;
+    text-align: center;
+    transition: opacity 0.5s;
+    flexCenter();
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 16px;
+
+    * {
+        transition: inherit;
+    }
+
+    .actions {
+        flex: 0 0 100%;
+        flexCenter();
+        align-self: flex-start;
+        margin: 36px
+    }
+
+    button {
+        width: 100px;
+        height: 100px;
+        background: white;
+        margin: 24px;
+        background: darkHighlight;
+        color: white;
+        border-radius: 50%;
+
+        display: block;
+        text-align: center;
+        dropShadow(2px);
+    }
+
+    i {
+        fillElement();
+        flexCenter();
+        pointer-events: none;
+    }
+
+    .spinner {
+        opacity: 0;
+    }
+
+    .imageContainer {
+        position: relative;
+        max-width: 100%;
+        width: 800px;
+
+        min-height: 80px;
+
+        overflow: hidden;
+        border-radius: 5px;
+        flexCenter();
+        dropShadow();
+
+        &:hover {
+            .info {
+                slideInY();
+            }
+        }
+    }
+
+    img {
+        width:100%;
+        opacity: 1;
+    }
+
+    .info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 12px;
+        height: 42px;
+
+        background: overlayBackground;
+
+        a {
+            display: inline-block;
+            overflow: hidden;
+            white-space: no-wrap;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        slideOutY();
+    }
+
+    &.loading {
+        button, .imageContainer {
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .imageContainer {
+            box-shadow: none;
+        }
+
+        .spinner {
+            opacity: 1;
+        }
+
+        img {
+            opacity 0;
+        }
+    }
+}

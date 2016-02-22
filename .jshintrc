@@ -1,0 +1,20 @@
+{
+  "node": true,
+
+  "sub": false,
+  "curly": true,
+  "latedef": true,
+  "quotmark": true,
+  "undef": true,
+  "unused": "vars",
+  "trailing": true,
+  "eqnull": true,
+  "eqeqeq": true,
+  "sub": true,
+  "latedef" : "nofunc",
+  "-W100": true,
+  "predef": [
+    "window",
+    "document"
+  ]
+}
