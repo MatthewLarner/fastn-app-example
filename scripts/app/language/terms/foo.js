@@ -1,6 +1,5 @@
 module.exports = {
-    'sites': 'fooBar',
-    'history': 'foo foo foo!',
+    'newImage': 'foo foomage',
     'username': 'foosername',
     'password': 'foosword'
 };
