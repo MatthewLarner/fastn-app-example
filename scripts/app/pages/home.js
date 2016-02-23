@@ -1,38 +1,39 @@
 var Enti = require('enti'),
-    store = Enti.store,
-    EventEmitter = require('events').EventEmitter;
+    store = Enti.store;
 
-var page = new EventEmitter();
+var page = {
+        image: {
+            url: ''
+        }
+    };
+
+function imageLoaded() {
+    store(page, 'loading', false);
+}
 
 module.exports = function(app) {
-    function createPage(event, app, activity){
-        var splashbase = app.persistence.splashbase;
-        store(page, 'image', {
-            url: ''
-        });
+    var splashbase = app.persistence.splashbase;
 
-        function getRandomImage() {
-            store(page, 'loading', true);
+    function getRandomImage() {
+        store(page, 'loading', true);
 
-            splashbase.random({
-                    imagesOnly: true
-                },
-                function(error, data) {
-                    store(page, 'image', data);
-                }
-            );
-        }
+        splashbase.random({
+                imagesOnly: true
+            },
+            function(error, data) {
+                store(page, 'image', data);
+            }
+        );
+    }
 
-        page.imageLoaded = function() {
-            store(page, 'loading', false);
-        };
+    function loadPage(event, activity) {
+        page.imageLoaded = imageLoaded;
+        page.refreshSource = getRandomImage;
 
         getRandomImage();
-
-        page.refreshSource = getRandomImage;
 
         return page;
     }
 
-    return createPage;
+    return loadPage;
 };

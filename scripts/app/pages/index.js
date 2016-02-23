@@ -27,7 +27,7 @@ function handleActivityChange(app, pages, name, event, activity, index) {
             return;
         }
 
-        var page = createPage(event, app, activity);
+        var page = createPage(event, activity);
 
         store(activity, 'page', page);
     }
